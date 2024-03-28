@@ -1,0 +1,18 @@
+# docker-compose.yml
+
+version: "3.8"
+
+services:
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    env_file:
+      - .env
+    ports:
+      - "9042:9042"
+    networks:
+      - cassandra_network
+
+networks:
+  cassandra_network:
+    name: cassandra_network

@@ -11,15 +11,11 @@ This Python script provides a class-based approach to interacting with a Postgre
 **Setup:**
 
 1. Install `psycopg2`:
-   Bash
+   
 
-   ```
+   ```bash
    pip install psycopg2
    ```
-
-   Utilisez ce code [avec précaution](https://gemini.google.com/faq#coding).
-
-   content\_copy
 2. Create a file named `.env` in the same directory as this script (optional). Add environment variables for your Postgres credentials:
 
    ```
@@ -37,15 +33,11 @@ This Python script provides a class-based approach to interacting with a Postgre
 2. Update the table schema (`table_schema`) dictionary to match your table structure.
 3. Adjust the sample data (`data`) dictionary for your specific inserts.
 4. Run the script:
-   Bash
+   
 
-   ```
+   ```bash
    python postgres_script.py
    ```
-
-   Utilisez ce code [avec précaution](https://gemini.google.com/faq#coding).
-
-   content\_copy
 
 **Functionality:**
 

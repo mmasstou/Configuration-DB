@@ -11,15 +11,10 @@ This Python script demonstrates interacting with a Cassandra database using the 
 **Setup:**
 
 1. Install `cassandra-driver`:
-   Bash
 
-   ```
+   ```bash
    pip install cassandra-driver
    ```
-
-   Utilisez ce code [avec précaution](https://gemini.google.com/faq#coding).
-
-   content_copy
 
 2. Create a file named `.env` in the same directory as this script (optional). Add environment variables for your Cassandra credentials:
 
@@ -38,15 +33,9 @@ This Python script demonstrates interacting with a Cassandra database using the 
 2. Update the keyspace name (`keyspace_name`) and table schema (`table_schema`) according to your requirements.
 3. Adjust the sample data (`data`) dictionary for your specific inserts.
 4. Run the script:
-   Bash
-
-   ```
+   ```bash
    python cassandra_script.py
    ```
-
-   Utilisez ce code [avec précaution](https://gemini.google.com/faq#coding).
-
-   content_copy
 
 **Functionality:**
 

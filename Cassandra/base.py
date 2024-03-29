@@ -160,6 +160,38 @@ class Cassandra:
                 continue
             self.execute_query(statement)
 
+    def generate_create_statement(self, keyspace_name, table_name):
+        query = "DESCRIBE TABLE {}.{}".format(keyspace_name, table_name)
+        results = self.session.execute(query)
+        if results:
+            # Parse the output to create the CREATE TABLE statement
+            create_statement = "CREATE TABLE IF NOT EXISTS {}.{} (".format(
+                keyspace_name, table_name
+            )
+            first_column = True
+            for result in results:
+                column_name = result[0]
+                data_type = result[1]
+                primary_key = result[4] == "true"
+                clustering_key = result[5] == "true"
+
+                if first_column:
+                    first_column = False
+                    create_statement += " {} {} ".format(column_name, data_type)
+                else:
+                    create_statement += ", {} {} ".format(column_name, data_type)
+
+                if primary_key:
+                    create_statement += "PRIMARY KEY (" + column_name
+                if clustering_key:
+                    create_statement += ", " + column_name
+
+            if primary_key or clustering_key:
+                create_statement += ")"
+            create_statement += ");"
+
+            return create_statement
+
     def disconnect(self) -> None:
         """
         Closes the connection to the Cassandra cluster.
